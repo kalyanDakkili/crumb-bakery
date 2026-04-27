@@ -14,7 +14,7 @@ export default function CartPage() {
         <h1 className="text-3xl text-[#3d2314] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
           Your cart is empty
         </h1>
-        <p className="text-[#3d2314]/60 mb-8">Looks like you haven't added anything yet. Let's fix that!</p>
+        <p className="text-[#3d2314]/60 mb-8">Looks like you haven&apos;t added anything yet. Let&apos;s fix that!</p>
         <Link
           href="/shop"
           className="inline-block px-8 py-4 bg-[#3d2314] text-[#f5e6d3] rounded-full font-semibold hover:bg-[#c8852a] transition-colors"
