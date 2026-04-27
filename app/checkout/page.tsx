@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { useCart } from '@/components/CartProvider'
 import { useAuth } from '@/components/AuthProvider'
 import Link from 'next/link'
@@ -9,7 +8,6 @@ import Link from 'next/link'
 export default function CheckoutPage() {
   const { items, total, clearCart } = useCart()
   const { user } = useAuth()
-  const router = useRouter()
 
   const [form, setForm] = useState({
     customer_name: user?.name || '',
@@ -46,7 +44,7 @@ export default function CheckoutPage() {
           Order Placed! 🎉
         </h1>
         <p className="text-[#3d2314]/60 mb-2">
-          Thank you for your order. We'll start baking right away!
+          Thank you for your order. We&apos;ll start baking right away!
         </p>
         <p className="text-xs text-[#3d2314]/40 mb-8 font-mono">Order #{orderId.slice(0, 8).toUpperCase()}</p>
         <Link
