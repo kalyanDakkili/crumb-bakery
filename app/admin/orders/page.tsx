@@ -149,7 +149,7 @@ export default function AdminOrdersPage() {
                   <div>
                     <p className="text-xs font-semibold text-[#3d2314]/50 uppercase tracking-wider mb-2">Items</p>
                     <div className="space-y-1">
-                      {Array.isArray(order.items) && order.items.map((item: any, idx: number) => (
+                      {Array.isArray(order.items) && order.items.map((item: { product_name: string; quantity: number; price: number }, idx: number) => (
                         <div key={idx} className="flex justify-between text-sm">
                           <span className="text-[#3d2314]/70">{item.product_name} × {item.quantity}</span>
                           <span className="text-[#3d2314] font-medium">₹{(item.price * item.quantity).toFixed(2)}</span>
