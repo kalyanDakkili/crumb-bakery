@@ -1,8 +1,22 @@
 import type { Metadata } from 'next'
+import { Playfair_Display, DM_Sans } from 'next/font/google'
 import './globals.css'
 import { AuthProvider } from '@/components/AuthProvider'
 import { CartProvider } from '@/components/CartProvider'
 import { Navbar } from '@/components/layout/Navbar'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-dm-sans',
+})
 
 export const metadata: Metadata = {
   title: 'Crumb — Artisan Bakery',
@@ -12,15 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+      <body className={`${playfair.variable} ${dmSans.variable}`}>
         <AuthProvider>
           <CartProvider>
             <Navbar />
@@ -29,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                   <h3 className="text-2xl mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Crumb</h3>
-                  <p className="text-sm opacity-70">Artisan breads & pastries baked fresh every morning since 2018.</p>
+                  <p className="text-sm opacity-70">Artisan breads &amp; pastries baked fresh every morning since 2018.</p>
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider opacity-50 mb-3">Hours</p>
