@@ -60,7 +60,7 @@ export default function AdminDashboard() {
         <h1 className="text-3xl text-[#3d2314]" style={{ fontFamily: "'Playfair Display', serif" }}>
           Dashboard
         </h1>
-        <p className="text-[#3d2314]/60 text-sm mt-1">Welcome back! Here's what's happening at Crumb today.</p>
+        <p className="text-[#3d2314]/60 text-sm mt-1">Welcome back! Here&apos;s what&apos;s happening at Crumb today.</p>
       </div>
 
       {/* Stats */}
