@@ -159,7 +159,7 @@ export default function AdminProductsPage() {
                     required
                     step={f.key === 'price' ? '0.01' : undefined}
                     min={f.key === 'price' ? '0.01' : undefined}
-                    value={(form as any)[f.key]}
+                    value={(form as Record<string, string | boolean>)[f.key] as string}
                     onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
                     placeholder={f.placeholder}
                     className="w-full px-4 py-2.5 rounded-xl border border-[#f5e6d3] focus:border-[#c8852a] focus:ring-2 focus:ring-[#c8852a]/20 outline-none text-[#3d2314] text-sm bg-[#fdf8f0]"
@@ -207,6 +207,7 @@ export default function AdminProductsPage() {
               {/* Image preview */}
               {form.image_url && (
                 <div className="rounded-xl overflow-hidden h-32 bg-[#fdf8f0]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={form.image_url} alt="Preview" className="w-full h-full object-cover" onError={e => (e.currentTarget.style.display = 'none')} />
                 </div>
               )}
