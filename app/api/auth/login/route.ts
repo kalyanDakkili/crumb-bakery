@@ -27,7 +27,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
-    const { password_hash: _, ...userWithoutHash } = user
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password_hash, ...userWithoutHash } = user
     const token = signToken(userWithoutHash)
 
     const response = NextResponse.json({ user: userWithoutHash, token })
